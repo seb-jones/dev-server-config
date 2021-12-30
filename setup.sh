@@ -13,8 +13,6 @@ ln -s php.sh /usr/local/bin/php
 
 echo "Creating wildcard self-signed certificate for *.test domain"
 
-sudo security authorizationdb write com.apple.trust-settings.admin allow
-
 mkcert -install
 
 mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \

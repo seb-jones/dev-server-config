@@ -26,4 +26,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Brew Packages
-        run: brew install php@8.0 php@7.3 php@5.6 nginx dnsmasq mkcert
+        run: |
+          brew update
+          brew install php@8.0 php@7.3 php@5.6 nginx dnsmasq mkcert
+
+      - name: Run Setup Script
+        run: ./setup.sh

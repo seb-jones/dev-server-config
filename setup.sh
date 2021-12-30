@@ -13,7 +13,7 @@ ln -s php.sh /usr/local/bin/php
 
 echo "Creating wildcard self-signed certificate for *.test domain"
 
-mkcert -install
+# mkcert -install
 
 mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
        -key-file  /usr/local/etc/ca-certificates/_wildcard.test-key.pem \

@@ -32,7 +32,10 @@ jobs:
 
       - name: Run Setup Script
         run: |
+          # This security command prevents an error in mkcert -install on CI runners.
+          # Source: https://github.com/actions/virtual-environments/issues/4519#issuecomment-970202641
           sudo security authorizationdb write com.apple.trust-settings.admin allow
+
           ./setup.sh
 
       - name: Check NGINX Config syntax

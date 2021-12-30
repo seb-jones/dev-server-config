@@ -13,6 +13,8 @@ brew services restart php@7.3
 brew services restart php@8.0
 brew services restart nginx
 
+ls -l /usr/local/var/run/php
+
 # Create directories for test sites
 mkdir -pv ~/sites/p73/php73-test/public
 mkdir -pv ~/sites/p80/php80-test/public

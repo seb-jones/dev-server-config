@@ -34,3 +34,6 @@ jobs:
         run: |
           sudo security authorizationdb write com.apple.trust-settings.admin allow
           ./setup.sh
+
+      - name: Check NGINX Config syntax
+        run: nginx -t

@@ -21,4 +21,4 @@ mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
        -key-file  /usr/local/etc/ca-certificates/_wildcard.test-key.pem \
        "*.test"
 
-echo "set \$home_directory $HOME;" > nginx/snippets/home-directory.conf
+echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf

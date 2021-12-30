@@ -55,12 +55,17 @@ jobs:
           brew services start nginx
 
           # Create directories for test sites
-          mkdir -p sites/73/php73-test
-          mkdir -p sites/80/php80-test
+          mkdir -p sites/p73/php73-test
+          mkdir -p sites/p80/php80-test
 
           # Add test php files to site directories
-          echo '<?php phpinfo(); ?>' > sites/73/php73-test/index.php
-          echo '<?php phpinfo(); ?>' > sites/80/php80-test/index.php
+          echo '<?php phpinfo(); ?>' > sites/p73/php73-test/index.php
+          echo '<?php phpinfo(); ?>' > sites/p80/php80-test/index.php
 
+          # Try running each PHP file in the terminal
+          cd ~/sites/p73/php73-test && php index.php
+          cd ~/sites/p80/php73-test && php index.php
+
+          # Send a HTTP request to each site
           curl --insecure 'https://php73-test.test'
           curl --insecure 'https://php80-test.test'

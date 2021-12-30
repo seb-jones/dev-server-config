@@ -38,7 +38,7 @@ jobs:
 
           ./setup.sh
 
-      - name: Test
+      - name: Run Test Script
         run: ./test.sh
 
       - uses: actions/upload-artifact@v2

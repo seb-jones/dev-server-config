@@ -8,10 +8,10 @@ fi
 nginx -t
 
 # Start services
-sudo brew services start dnsmasq
-brew services start php@7.3
-brew services start php@8.0
-brew services start nginx
+sudo brew services restart dnsmasq
+brew services restart php@7.3
+brew services restart php@8.0
+brew services restart nginx
 
 # Create directories for test sites
 mkdir -pv ~/sites/p73/php73-test/public

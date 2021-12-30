@@ -25,6 +25,5 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo $HOME
+      - name: Install Brew Packages
+        run: brew install php@8.0 php@7.3 php@5.6 nginx dnsmasq mkcert

@@ -13,6 +13,10 @@ ln -s "$working_directory/nginx/nginx.conf" /usr/local/etc/nginx/nginx.conf
 ln -s "$working_directory/nginx/snippets" /usr/local/etc/nginx/snippets
 ln -s "$working_directory/php.sh" /usr/local/bin/php
 
+echo "Adding home directory snippet to nginx configs"
+
+echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
+
 echo "Creating wildcard self-signed certificate for *.test domain"
 
 mkcert -install
@@ -20,7 +24,3 @@ mkcert -install
 mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
        -key-file  /usr/local/etc/ca-certificates/_wildcard.test-key.pem \
        "*.test"
-
-echo "Adding home directory snippet to nginx configs"
-
-echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf

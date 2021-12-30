@@ -6,10 +6,12 @@ mv /usr/local/bin/php /usr/local/bin/php.bak
 
 echo "Creating symlinks to new files"
 
-ln -s dnsmasq.conf /usr/local/etc/dnsmasq.conf
-ln -s nginx/nginx.conf /usr/local/etc/nginx/nginx.conf
-ln -s nginx/snippets /usr/local/etc/nginx/snippets
-ln -s php.sh /usr/local/bin/php
+$wd = $(pwd)
+
+ln -s "$wd/dnsmasq.conf" /usr/local/etc/dnsmasq.conf
+ln -s "$wd/nginx/nginx.conf" /usr/local/etc/nginx/nginx.conf
+ln -s "$wd/nginx/snippets" /usr/local/etc/nginx/snippets
+ln -s "$wd/php.sh" /usr/local/bin/php
 
 echo "Creating wildcard self-signed certificate for *.test domain"
 

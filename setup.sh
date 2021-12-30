@@ -27,5 +27,6 @@ mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
 
 echo "Adding custom resolver for *.test domain"
 
+# Source: https://firxworx.com/blog/it-devops/sysadmin/using-dnsmasq-on-macos-to-setup-a-local-domain-for-development/
 sudo mkdir -pv /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'

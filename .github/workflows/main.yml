@@ -68,5 +68,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: log-files
-          path: /usr/local/var/log
-
+          path: |
+            /usr/local/var/log
+            /usr/local/etc/php

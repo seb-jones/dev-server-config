@@ -1,3 +1,5 @@
+pwd
+
 echo "Renaming existing files to backups"
 
 mv /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak

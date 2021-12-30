@@ -38,5 +38,24 @@ jobs:
 
           ./setup.sh
 
-      - name: Check NGINX Config syntax
-        run: nginx -t
+      - name: Test
+        run: |
+          # Check NGINX configuration file syntax
+          nginx -t
+
+          # Start services
+          sudo brew services start dnsmasq
+          brew services start php@7.3
+          brew services start php@8.0
+          brew services start nginx
+
+          # Create directories for test sites
+          mkdir -p sites/73/php73-test
+          mkdir -p sites/80/php80-test
+
+          # Add test php files to site directories
+          echo '<?php phpinfo(); ?>' > sites/73/php73-test/index.php
+          echo '<?php phpinfo(); ?>' > sites/80/php80-test/index.php
+
+          curl --insecure 'https://php73-test.test'
+          curl --insecure 'https://php80-test.test'

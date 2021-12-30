@@ -1,5 +1,3 @@
-pwd
-
 echo "Renaming existing files to backups"
 
 mv /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak
@@ -8,12 +6,12 @@ mv /usr/local/bin/php /usr/local/bin/php.bak
 
 echo "Creating symlinks to new files"
 
-$wd = $(pwd)
+working_directory=$(pwd)
 
-ln -s "$wd/dnsmasq.conf" /usr/local/etc/dnsmasq.conf
-ln -s "$wd/nginx/nginx.conf" /usr/local/etc/nginx/nginx.conf
-ln -s "$wd/nginx/snippets" /usr/local/etc/nginx/snippets
-ln -s "$wd/php.sh" /usr/local/bin/php
+ln -s "$working_directory/dnsmasq.conf" /usr/local/etc/dnsmasq.conf
+ln -s "$working_directory/nginx/nginx.conf" /usr/local/etc/nginx/nginx.conf
+ln -s "$working_directory/nginx/snippets" /usr/local/etc/nginx/snippets
+ln -s "$working_directory/php.sh" /usr/local/bin/php
 
 echo "Creating wildcard self-signed certificate for *.test domain"
 

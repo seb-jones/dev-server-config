@@ -63,8 +63,8 @@ jobs:
           echo '<?php phpinfo(); ?>' > ~/sites/p80/php80-test/index.php
 
           # Try running each PHP file in the terminal and check for correct version number
-          cd ~/sites/p73/php73-test && php index.php | grep --quiet -E  '^PHP\s+Version\s+=>\s+7.3'
-          cd ~/sites/p80/php80-test && php index.php | grep --quiet -E  '^PHP\s+Version\s+=>\s+8.0'
+          cd ~/sites/p73/php73-test && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+7.3'
+          cd ~/sites/p80/php80-test && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+8.0'
 
           # Send a HTTP request to each site
           curl --insecure 'https://php73-test.test'

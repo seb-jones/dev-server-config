@@ -18,3 +18,7 @@ mkcert -install
 mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
        -key-file  /usr/local/etc/ca-certificates/_wildcard.test-key.pem \
        "*.test"
+
+ls -l /usr/local/etc/nginx
+ls -l /usr/local/etc/dnsmasq.conf
+ls -l /usr/local/bin/php

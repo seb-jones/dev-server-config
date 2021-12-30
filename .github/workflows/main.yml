@@ -64,7 +64,7 @@ jobs:
 
           # Try running each PHP file in the terminal
           cd ~/sites/p73/php73-test && php index.php
-          cd ~/sites/p80/php73-test && php index.php
+          cd ~/sites/p80/php80-test && php index.php
 
           # Send a HTTP request to each site
           curl --insecure 'https://php73-test.test'

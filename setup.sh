@@ -24,3 +24,8 @@ mkcert -install
 mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
        -key-file  /usr/local/etc/ca-certificates/_wildcard.test-key.pem \
        "*.test"
+
+echo "Adding custom resolver for *.test domain"
+
+mkdir -p /etc/resolver
+echo "nameserver 127.0.0.1" > /etc/resolver/test

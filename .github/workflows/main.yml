@@ -59,3 +59,9 @@ jobs:
 
           curl --insecure 'https://php73-test.test'
           curl --insecure 'https://php80-test.test'
+
+      - name: Save Log Files as Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: log-files
+          path: /usr/local/var/log

@@ -17,6 +17,14 @@ echo "Adding home directory snippet to nginx configs"
 
 echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
 
+echo "Tweaking php.ini listen option to use sockets"
+
+cp /usr/local/etc/php/7.3/php-fpm.d/www.conf /usr/local/etc/php/7.3/php-fpm.d/www.conf.bak
+cp /usr/local/etc/php/8.0/php-fpm.d/www.conf /usr/local/etc/php/8.0/php-fpm.d/www.conf.bak
+
+sed -i -E -e 's/^listen =.+$/listen = /usr/local/var/run/php/php7.3-fpm.sock/g' /usr/local/etc/php/7.3/php-fpm.d/www.conf 
+sed -i -E -e 's/^listen =.+$/listen = /usr/local/var/run/php/php8.0-fpm.sock/g' /usr/local/etc/php/8.0/php-fpm.d/www.conf 
+
 echo "Creating wildcard self-signed certificate for *.test domain"
 
 mkcert -install

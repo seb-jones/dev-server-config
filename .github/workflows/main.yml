@@ -47,3 +47,4 @@ jobs:
           path: |
             /usr/local/var/log
             /usr/local/etc/php
+            ~/test-output

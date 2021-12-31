@@ -25,6 +25,6 @@ echo '<?php phpinfo(); ?>' > ~/sites/p80/php80-test/public/index.php
 cd ~/sites/p73/php73-test/public && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+7.3'
 cd ~/sites/p80/php80-test/public && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+8.0'
 
-# Send a HTTP request to each site
-curl --insecure 'https://php73-test.test' | grep --quiet -E 'PHP\s+Version\s+7.3'
-curl --insecure 'https://php80-test.test' | grep --quiet -E 'PHP\s+Version\s+8.0'
+# Send a HTTP request to each site and check version of result
+curl --insecure 'https://php73-test.test' -o "php73-test-output.html" && grep --quiet -E 'PHP\s+Version\s+7.3' php73-test-output.html
+curl --insecure 'https://php80-test.test' -o "php80-test-output.html" && grep --quiet -E 'PHP\s+Version\s+7.3' php80-test-output.html

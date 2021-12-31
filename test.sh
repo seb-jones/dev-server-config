@@ -26,5 +26,5 @@ cd ~/sites/p73/php73-test/public && php index.php | grep --quiet -E '^PHP\s+Vers
 cd ~/sites/p80/php80-test/public && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+8.0'
 
 # Send a HTTP request to each site
-curl --insecure 'https://php73-test.test'
-curl --insecure 'https://php80-test.test'
+curl --insecure 'https://php73-test.test' | grep --quiet -E 'PHP\s+Version\s+7.3'
+curl --insecure 'https://php80-test.test' | grep --quiet -E 'PHP\s+Version\s+8.0'

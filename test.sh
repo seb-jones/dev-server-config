@@ -8,7 +8,7 @@ fi
 nginx -t
 
 # Start services
-sudo brew services restart dnsmasq
+brew services restart dnsmasq
 brew services restart php@7.3
 brew services restart php@8.0
 brew services restart nginx

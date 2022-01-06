@@ -1,3 +1,8 @@
+echo "(Re)installing Brew Packages"
+
+brew tap shivammathur/php
+brew install php@8.0 shivammathur/php/php@7.3 shivammathur/php/php@5.6 nginx dnsmasq mkcert
+
 echo "Renaming existing files to backups"
 
 mv -v /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak

@@ -25,11 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install Brew Packages
-        run: |
-          brew tap shivammathur/php
-          brew install php@8.0 shivammathur/php/php@7.3 shivammathur/php/php@5.6 nginx dnsmasq mkcert
-
       - name: Run Setup Script
         run: |
           # This security command prevents an error in mkcert -install on CI runners.

@@ -6,6 +6,10 @@ php_versions=(
     php@8.0
     shivammathur/php/php@7.3
 )
+
+function php_version_numbers() {
+    echo "${php_versions[@]}" | grep -o '[0-9]\.[0-9]';
+}
     
 brew tap shivammathur/php
 brew install nginx dnsmasq mkcert ${php_versions[@]}
@@ -30,9 +34,7 @@ echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
 
 echo "Tweaking php.ini listen option to use sockets"
 
-for php_version in ${php_versions[@]}; do
-    version_number=$(echo "$php_version" | grep -o '[0-9]\.[0-9]$')
-
+for version_number in $(php_version_numbers); do
     mv -v "/usr/local/etc/php/$version_number/php-fpm.d/www.conf" "/usr/local/etc/php/$version_number/php-fpm.d/www.conf.bak"
 
     sed -E "s!^listen =.+\$!listen = /usr/local/var/run/php/php$version_number-fpm.sock!g" "/usr/local/etc/php/$version_number/php-fpm.d/www.conf.bak" > "/usr/local/etc/php/$version_number/php-fpm.d/www.conf"

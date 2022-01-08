@@ -31,7 +31,7 @@ echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
 
 echo "Tweaking php.ini listen option to use sockets"
 
-for php_version in php_versions; do
+for php_version in ${php_versions[@]}; do
     version_number=$(echo "$php_version" | grep -o '[0-9]\.[0-9]$')
 
     mv -v "/usr/local/etc/php/$version_number/php-fpm.d/www.conf" "/usr/local/etc/php/$version_number/php-fpm.d/www.conf.bak"

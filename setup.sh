@@ -5,7 +5,6 @@ echo "(Re)installing Brew Packages"
 php_versions=(
     php@8.0
     shivammathur/php/php@7.3
-    shivammathur/php/php@5.6
 )
     
 brew tap shivammathur/php

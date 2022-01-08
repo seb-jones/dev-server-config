@@ -13,6 +13,8 @@ wd=$(pwd)
 
 if [[ $wd =~ '/p80' ]]; then
     /usr/local/opt/php@8.0/bin/php "$@"
+elif [[ $wd =~ '/p74' ]]; then
+    /usr/local/opt/php@7.4/bin/php "$@"
 elif [[ $wd =~ '/p73' ]]; then
     /usr/local/opt/php@7.3/bin/php "$@"
 elif [[ $wd =~ '/p56' ]]; then

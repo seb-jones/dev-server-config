@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "(Re)installing Brew Packages"
-
 php_versions=(
     php@8.0
     shivammathur/php/php@7.3
@@ -10,6 +8,8 @@ php_versions=(
 function php_version_numbers() {
     echo "${php_versions[@]}" | grep -o '[0-9]\.[0-9]';
 }
+
+echo "(Re)installing Brew Packages"
     
 brew tap shivammathur/php
 brew install nginx dnsmasq mkcert ${php_versions[@]}
@@ -66,5 +66,7 @@ echo "Starting Brew Services"
 
 sudo brew services restart dnsmasq
 brew services restart nginx
-brew services restart php@7.3
-brew services restart php@8.0
+
+for version_number in $(php_version_numbers); do
+    brew services restart "php@$version_number"
+done

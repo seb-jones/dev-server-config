@@ -2,9 +2,14 @@
 
 echo "(Re)installing Brew Packages"
 
+php_versions=(
+    php@8.0
+    shivammathur/php/php@7.3
+    shivammathur/php/php@5.6
+)
+    
 brew tap shivammathur/php
-brew install php@8.0 shivammathur/php/php@7.3 shivammathur/php/php@5.6 nginx dnsmasq mkcert
-
+brew install nginx dnsmasq mkcert ${php_versions[@]}
 echo "Renaming existing files to backups"
 
 mv -v /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak
@@ -26,11 +31,13 @@ echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
 
 echo "Tweaking php.ini listen option to use sockets"
 
-mv -v /usr/local/etc/php/7.3/php-fpm.d/www.conf /usr/local/etc/php/7.3/php-fpm.d/www.conf.bak
-mv -v /usr/local/etc/php/8.0/php-fpm.d/www.conf /usr/local/etc/php/8.0/php-fpm.d/www.conf.bak
+for php_version in php_versions; do
+    version_number=$(echo "$php_version" | grep -Po '\d\.\d$')
 
-sed -E 's!^listen =.+$!listen = /usr/local/var/run/php/php7.3-fpm.sock!g' /usr/local/etc/php/7.3/php-fpm.d/www.conf.bak > /usr/local/etc/php/7.3/php-fpm.d/www.conf
-sed -E 's!^listen =.+$!listen = /usr/local/var/run/php/php8.0-fpm.sock!g' /usr/local/etc/php/8.0/php-fpm.d/www.conf.bak > /usr/local/etc/php/8.0/php-fpm.d/www.conf
+    mv -v "/usr/local/etc/php/$version_number/php-fpm.d/www.conf" "/usr/local/etc/php/$version_number/php-fpm.d/www.conf.bak"
+
+    sed -E "s!^listen =.+\$!listen = /usr/local/var/run/php/php$version_number-fpm.sock!g" "/usr/local/etc/php/$version_number/php-fpm.d/www.conf.bak" > "/usr/local/etc/php/$version_number/php-fpm.d/www.conf"
+done
 
 echo "Creating PHP FPM socket directory"
 
@@ -57,6 +64,6 @@ nginx -t
 echo "Starting Brew Services"
 
 sudo brew services restart dnsmasq
+brew services restart nginx
 brew services restart php@7.3
 brew services restart php@8.0
-brew services restart nginx

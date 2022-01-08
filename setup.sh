@@ -76,5 +76,3 @@ brew services restart nginx
 for version_number in $(php_version_numbers); do
     brew services restart "php@$version_number"
 done
-
-ls /usr/local/var/run/php

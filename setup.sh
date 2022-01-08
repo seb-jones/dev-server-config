@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "(Re)installing Brew Packages"
 
 brew tap shivammathur/php

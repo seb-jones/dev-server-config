@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Quit if CI environment variable is not set
 if [[ -z ${CI} ]]; then
     echo "This command should only be run in a CI Runner"

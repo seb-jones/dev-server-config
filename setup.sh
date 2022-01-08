@@ -14,6 +14,7 @@ echo "(Re)installing Brew Packages"
     
 brew tap shivammathur/php
 brew install nginx dnsmasq mkcert ${php_versions[@]}
+
 echo "Renaming existing files to backups"
 
 mv -v /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak

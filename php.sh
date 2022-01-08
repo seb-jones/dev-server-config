@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 
 # Runs a different version of `php` depending on the current working directory.
 # If it contains `/p80`, `/p73` or `/p56` then PHP 8.0, 7.3 or 5.6 are run,

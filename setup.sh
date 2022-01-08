@@ -4,6 +4,7 @@ php_versions=(
     php@8.0
     php@7.4
     shivammathur/php/php@7.3
+    shivammathur/php/php@5.6
 )
 
 function php_version_numbers() {

@@ -47,3 +47,14 @@ echo "Adding custom resolver for *.test domain"
 # Source: https://firxworx.com/blog/it-devops/sysadmin/using-dnsmasq-on-macos-to-setup-a-local-domain-for-development/
 sudo mkdir -pv /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
+
+echo "Checking NGINX configuration file syntax"
+
+nginx -t
+
+echo "Starting Brew Services"
+
+sudo brew services restart dnsmasq
+brew services restart php@7.3
+brew services restart php@8.0
+brew services restart nginx

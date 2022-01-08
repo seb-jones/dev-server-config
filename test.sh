@@ -4,15 +4,6 @@ if [[ -z ${CI} ]]; then
     exit 1
 fi
 
-# Check NGINX configuration file syntax
-nginx -t
-
-# Start services
-sudo brew services restart dnsmasq
-brew services restart php@7.3
-brew services restart php@8.0
-brew services restart nginx
-
 # Create directories for test sites and output
 mkdir -pv ~/sites/p73/php73-test/public
 mkdir -pv ~/sites/p80/php80-test/public

@@ -15,7 +15,6 @@ echo "(Re)installing Brew Packages"
     
 brew tap shivammathur/php
 brew install nginx dnsmasq mkcert ${php_versions[@]}
-
 echo "Renaming existing files to backups"
 
 mv -v /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak
@@ -36,9 +35,6 @@ echo "Adding home directory snippet to nginx configs"
 echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
 
 echo "Tweaking php.ini listen option to use sockets"
-
-ls /usr/local/etc/php/5.6/
-ls /usr/local/etc/php/5.6/php-fpm.d/
 
 for version_number in $(php_version_numbers); do
     mv -v "/usr/local/etc/php/$version_number/php-fpm.d/www.conf" "/usr/local/etc/php/$version_number/php-fpm.d/www.conf.bak"

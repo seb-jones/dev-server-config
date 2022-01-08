@@ -23,6 +23,6 @@ cd ~/sites/p80/php80-test/public && php index.php > ~/test-output/php80-test-out
 
 # Send a HTTP request to each site and check version of result
 curl -vk 'https://php73-test.test' -o ~/test-output/php73-test-output.html \
-    && grep -E 'PHP\s+Version\s+7.3' ~/test-output/php73-test-output.html
+    && grep -oE 'PHP\s+Version\s+7.3' ~/test-output/php73-test-output.html
 curl -vk 'https://php80-test.test' -o ~/test-output/php80-test-output.html \
-    && grep -E 'PHP\s+Version\s+8.0' ~/test-output/php80-test-output.html
+    && grep -oE 'PHP\s+Version\s+8.0' ~/test-output/php80-test-output.html

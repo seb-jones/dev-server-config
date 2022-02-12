@@ -66,7 +66,10 @@ nginx -t
 
 echo "Starting Brew Services"
 
-sudo brew services restart dnsmasq
+# Apparently `brew services restart` sometimes doesn't work right with dnsmasq if
+# it was previously running non-sudo, so we do `start` and `stop` here instead
+sudo brew services stop dnsmasq && sudo brew services start dnsmasq
+
 brew services restart nginx
 
 for version_number in $(php_version_numbers); do

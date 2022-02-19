@@ -1,4 +1,4 @@
-# dev-server-config
+# Dev Server Config
 
 Serves multiple PHP versions with NGINX at the same time on a single dev domain with a self-signed certificate. No manual switching of PHP version required. MacOS only (for now).
 

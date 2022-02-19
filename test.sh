@@ -25,6 +25,14 @@ echo '<?php phpinfo(); ?>' > ~/sites/p80/php80-test/public/index.php
 cd ~/sites/p73/php73-test/public && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+7.3'
 cd ~/sites/p80/php80-test/public && php index.php | grep --quiet -E '^PHP\s+Version\s+=>\s+8.0'
 
-# Send a HTTP request to each site and check version of result
+# Send a HTTPS request to each site and check version of result
 curl --insecure 'https://php73-test.test' -o "php73-test-output.html" && grep --quiet -E 'PHP\s+Version\s+7.3' php73-test-output.html
 curl --insecure 'https://php80-test.test' -o "php80-test-output.html" && grep --quiet -E 'PHP\s+Version\s+7.3' php80-test-output.html
+
+# Send a HTTP request to each site and check for redirect to HTTPS in headers
+curl --insecure -i 'http://php73-test.test' -o "php73-test-output.html" && \
+    grep --quiet -E '301 Moved Permanently' php73-test-output.html && \
+    grep --quiet -E 'Location: https://php73-test.test' php73-test-output.html
+curl --insecure -i 'http://php80-test.test' -o "php80-test-output.html" && \
+    grep --quiet -E '301 Moved Permanently' php80-test-output.html && \
+    grep --quiet -E 'Location: https://php80-test.test' php80-test-output.html

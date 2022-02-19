@@ -30,25 +30,25 @@ cd ~/sites/p80/php80-test/public && php index.php > ~/test-output/php80-test-out
 
 # Send a HTTPS request to each site and check version of result
 
-curl -vk 'https://php73-test.test' -o ~/test-output/php73-test-output.html \
+curl -vk 'https://php73-test.dev.test' -o ~/test-output/php73-test-output.html \
     && grep -oE 'PHP\s+Version\s+7.3' ~/test-output/php73-test-output.html
 
-curl -vk 'https://php74-test.test' -o ~/test-output/php74-test-output.html \
+curl -vk 'https://php74-test.dev.test' -o ~/test-output/php74-test-output.html \
     && grep -oE 'PHP\s+Version\s+7.4' ~/test-output/php74-test-output.html
 
-curl -vk 'https://php80-test.test' -o ~/test-output/php80-test-output.html \
+curl -vk 'https://php80-test.dev.test' -o ~/test-output/php80-test-output.html \
     && grep -oE 'PHP\s+Version\s+8.0' ~/test-output/php80-test-output.html
 
 # Send a HTTP request to each site and check for redirect to HTTPS in headers
 
-curl -vki 'http://php73-test.test' -o "php73-test-output.html" && \
+curl -vki 'http://php73-test.dev.test' -o "php73-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php73-test-output.html && \
-    grep --quiet -E 'Location: https://php73-test.test' php73-test-output.html
+    grep --quiet -E 'Location: https://php73-test.dev.test' php73-test-output.html
 
-curl -vki 'http://php74-test.test' -o "php74-test-output.html" && \
+curl -vki 'http://php74-test.dev.test' -o "php74-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php74-test-output.html && \
-    grep --quiet -E 'Location: https://php74-test.test' php74-test-output.html
+    grep --quiet -E 'Location: https://php74-test.dev.test' php74-test-output.html
 
-curl -vki 'http://php80-test.test' -o "php80-test-output.html" && \
+curl -vki 'http://php80-test.dev.test' -o "php80-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php80-test-output.html && \
-    grep --quiet -E 'Location: https://php80-test.test' php80-test-output.html
+    grep --quiet -E 'Location: https://php80-test.dev.test' php80-test-output.html

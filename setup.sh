@@ -46,15 +46,15 @@ echo "Creating PHP FPM socket directory"
 
 mkdir -pv /usr/local/var/run/php
 
-echo "Creating wildcard self-signed certificate for *.test domain"
+echo "Creating wildcard self-signed certificate for *.dev.test domain"
 
 mkcert -install
 
-mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.test.pem \
-       -key-file  /usr/local/etc/ca-certificates/_wildcard.test-key.pem \
-       "*.test"
+mkcert -cert-file /usr/local/etc/ca-certificates/_wildcard.dev.test.pem \
+       -key-file  /usr/local/etc/ca-certificates/_wildcard.dev.test-key.pem \
+       "*.dev.test"
 
-echo "Adding custom resolver for *.test domain"
+echo "Adding custom resolver for *.dev.test domain"
 
 # Source: https://firxworx.com/blog/it-devops/sysadmin/using-dnsmasq-on-macos-to-setup-a-local-domain-for-development/
 sudo mkdir -pv /etc/resolver

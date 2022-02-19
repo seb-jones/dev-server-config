@@ -52,3 +52,14 @@ curl -vi 'http://php74-test.dev.test' -o "php74-test-output.html" && \
 curl -vi 'http://php80-test.dev.test' -o "php80-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php80-test-output.html && \
     grep --quiet -E 'Location: https://php80-test.dev.test' php80-test-output.html
+
+# Try running PECL in the terminal and check for correct version number
+
+cd ~/sites/p73/php73-test && pecl version > ~/test-output/pecl73-test-output.txt \
+    && grep -E '^PHP\s+Version:\s+7.3' ~/test-output/pecl73-test-output.txt
+
+cd ~/sites/p74/php74-test && pecl version > ~/test-output/pecl74-test-output.txt \
+    && grep -E '^PHP\s+Version:\s+7.4' ~/test-output/pecl74-test-output.txt
+
+cd ~/sites/p80/php80-test && pecl version > ~/test-output/pecl80-test-output.txt \
+    && grep -E '^PHP\s+Version:\s+8.0' ~/test-output/pecl80-test-output.txt

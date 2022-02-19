@@ -29,6 +29,7 @@ ln -vs "$working_directory/dnsmasq.conf" /usr/local/etc/dnsmasq.conf
 ln -vs "$working_directory/nginx/nginx.conf" /usr/local/etc/nginx/nginx.conf
 ln -vs "$working_directory/nginx/snippets" /usr/local/etc/nginx/snippets
 ln -vs "$working_directory/php.sh" /usr/local/bin/php
+ln -vs "$working_directory/pecl.sh" /usr/local/bin/pecl
 
 echo "Adding home directory snippet to nginx configs"
 

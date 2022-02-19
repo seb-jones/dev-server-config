@@ -13,7 +13,7 @@ function php_version_numbers() {
 echo "(Re)installing Brew Packages"
     
 brew tap shivammathur/php
-brew install nginx dnsmasq mkcert ${php_versions[@]}
+brew install nginx dnsmasq mkcert nss ${php_versions[@]}
 
 echo "Renaming existing files to backups"
 

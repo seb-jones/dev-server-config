@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 
 # Runs a different version of `php` depending on the current working directory.
 # If it contains `/p80`, `/p73` or `/p56` then PHP 8.0, 7.3 or 5.6 are run,
@@ -13,6 +13,8 @@ wd=$(pwd)
 
 if [[ $wd =~ '/p80' ]]; then
     /usr/local/opt/php@8.0/bin/php "$@"
+elif [[ $wd =~ '/p74' ]]; then
+    /usr/local/opt/php@7.4/bin/php "$@"
 elif [[ $wd =~ '/p73' ]]; then
     /usr/local/opt/php@7.3/bin/php "$@"
 elif [[ $wd =~ '/p56' ]]; then

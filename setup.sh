@@ -20,6 +20,7 @@ echo "Renaming existing files to backups"
 mv -v /usr/local/etc/dnsmasq.conf /usr/local/etc/dnsmasq.conf.bak
 mv -v /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf.bak
 mv -v /usr/local/bin/php /usr/local/bin/php.bak
+mv -v /usr/local/bin/pecl /usr/local/bin/pecl.bak
 
 echo "Creating symlinks to new files"
 

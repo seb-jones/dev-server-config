@@ -34,12 +34,12 @@ curl -vk 'https://php80-test.test' -o ~/test-output/php80-test-output.html \
     && grep -oE 'PHP\s+Version\s+8.0' ~/test-output/php80-test-output.html
 
 # Send a HTTP request to each site and check for redirect to HTTPS in headers
-curl --insecure -i 'http://php73-test.test' -o "php73-test-output.html" && \
+curl -vki 'http://php73-test.test' -o "php73-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php73-test-output.html && \
     grep --quiet -E 'Location: https://php73-test.test' php73-test-output.html
-curl --insecure -i 'http://php74-test.test' -o "php74-test-output.html" && \
+curl -vki 'http://php74-test.test' -o "php74-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php74-test-output.html && \
     grep --quiet -E 'Location: https://php74-test.test' php74-test-output.html
-curl --insecure -i 'http://php80-test.test' -o "php80-test-output.html" && \
+curl -vki 'http://php80-test.test' -o "php80-test-output.html" && \
     grep --quiet -E '301 Moved Permanently' php80-test-output.html && \
     grep --quiet -E 'Location: https://php80-test.test' php80-test-output.html

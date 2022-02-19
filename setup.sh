@@ -34,7 +34,7 @@ ln -vs "$working_directory/pecl.sh" /usr/local/bin/pecl
 
 if [[ -f ./nginx/snippets/home-directory.conf ]]; then
     echo "home-directory.conf exists, not creating"
-elif
+else
     echo "Adding home directory snippet to nginx configs"
     echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
 fi

@@ -32,9 +32,12 @@ ln -vs "$working_directory/nginx/snippets" /usr/local/etc/nginx/snippets
 ln -vs "$working_directory/php.sh" /usr/local/bin/php
 ln -vs "$working_directory/pecl.sh" /usr/local/bin/pecl
 
-echo "Adding home directory snippet to nginx configs"
-
-echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
+if [[ -f ./nginx/snippets/home-directory.conf ]]; then
+    echo "home-directory.conf exists, not creating"
+else
+    echo "Adding home directory snippet to nginx configs"
+    echo "set \$home_directory $HOME;" > ./nginx/snippets/home-directory.conf
+fi
 
 echo "Tweaking php.ini listen option to use sockets"
 

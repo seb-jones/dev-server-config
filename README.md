@@ -13,7 +13,7 @@ The NGINX config uses the the first working directory to match the requested sub
  * PHP 7.4 is used for any directories containing `/p74/` in their full path
  * PHP 8.0 is used for any other directory
 
-For example, if you request `website.dev.test`, and you have a directory `~/sites/p56/website`, that directory will be used, and executed using the PHP 5.6 FPM.
+For example, if you request `https://website.dev.test`, and you have a directory `~/sites/p56/website`, then `~/sites/p56/website/public/index.php` will be executed using the PHP 5.6 FPM.
 
 ## Installation
 

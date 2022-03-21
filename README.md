@@ -2,6 +2,19 @@
 
 Serves multiple PHP versions with NGINX at the same time on a single dev domain with a self-signed certificate. No manual switching of PHP version required. MacOS only (for now).
 
+## Usage
+
+All sites are accessed through the `.dev.test` domain. The subdomain is used to determine the directory name.
+
+The NGINX config uses the the first working directory to match the requested subdomain to determine what PHP version to use:
+
+ * PHP 5.6 is used for any directories containing `/p56/` in their full path
+ * PHP 7.3 is used for any directories containing `/p73/` in their full path
+ * PHP 7.4 is used for any directories containing `/p74/` in their full path
+ * PHP 8.0 is used for any other directory
+
+For example, if you request `website.dev.test`, and you have a directory `~/sites/p56/website`, that directory will be used, and executed using the PHP 5.6 FPM.
+
 ## Installation
 
 [Homebrew](https://brew.sh/) is required for installation.
